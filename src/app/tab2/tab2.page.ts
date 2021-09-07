@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
 import { Observable } from 'rxjs';
+import { AboutPage } from '../about/about.page';
 import { PeopleService } from '../api/people.service';
 
 @Component({
@@ -15,7 +17,8 @@ export class Tab2Page implements OnInit {
 
   constructor(private people: PeopleService,
     private router: Router,
-    private activatedRoute: ActivatedRoute) {}
+    private activatedRoute: ActivatedRoute,
+    private modal: ModalController) {}
 
   ngOnInit() {
     this.peopleList = this.people.getPeople(20);
@@ -29,6 +32,13 @@ export class Tab2Page implements OnInit {
   find(person: any) {
     return this.searchText.trim() === ''
       || `${ person.first_name } ${ person.last_name }`.toLowerCase().includes(this.searchText.toLowerCase());
+  }
+
+  async presentModal() {
+    const modal = await this.modal.create({
+      component: AboutPage
+    });
+    return await modal.present();
   }
 
 }

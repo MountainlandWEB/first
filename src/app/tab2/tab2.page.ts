@@ -26,7 +26,7 @@ export class Tab2Page implements OnInit {
 
   goToFriend(person: any) {
     this.router.navigate(['friend'],
-    { state: { person }, relativeTo: this.activatedRoute });
+        { state: { person }, relativeTo: this.activatedRoute });
   }
 
   find(person: any) {

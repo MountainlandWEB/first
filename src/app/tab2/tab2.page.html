@@ -26,7 +26,7 @@
   <ion-searchbar [(ngModel)]="searchText"></ion-searchbar>
 
   <ion-list>
-    <ion-item button *ngFor="let person of (peopleList | async)" 
+    <ion-item button *ngFor="let person of peopleList | async" 
         (click)="goToFriend(person)" [hidden]="!find(person)">
       <ion-avatar slot="start">
         <img [src]="person.avatar" alt="avatar">

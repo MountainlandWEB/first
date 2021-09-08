@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -16,6 +16,10 @@ export class FriendPage {
         this.person = this.router.getCurrentNavigation().extras.state.person;
       }
     });
+  }
+
+  getGoogleHref(address) {
+    return `http://maps.google.com/maps?q=${ address.street_address }, ${ address.city }, ${ address.state } ${ address.zip_code }`;
   }
 
 }

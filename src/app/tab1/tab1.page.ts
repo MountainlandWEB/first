@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
+import { SettingsPage } from '../settings/settings.page';
 
 @Component({
   selector: 'app-tab1',
@@ -9,14 +10,15 @@ import { AlertController } from '@ionic/angular';
 export class Tab1Page {
 
   music = '03';
-  
+
   toppingList = [
     { val: 'Pepperoni', isChecked: true },
     { val: 'Sausage', isChecked: false },
     { val: 'Mushroom', isChecked: false }
   ];
 
-  constructor(private alertController: AlertController) {}
+  constructor(private alertController: AlertController,
+    private modalController: ModalController) {}
 
   async openAlert() {
     const alert = await this.alertController.create({
@@ -27,5 +29,12 @@ export class Tab1Page {
 
     const reply = await alert.present();
     console.log({reply});
+  }
+
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: SettingsPage
+    });
+    return await modal.present();
   }
 }

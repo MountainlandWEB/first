@@ -23,7 +23,7 @@
     </ion-buttons>
   </ion-header>
 
-  <ion-searchbar [(ngModel)]="searchText"></ion-searchbar>
+  <ion-searchbar [(ngModel)]="searchText" animated="true"></ion-searchbar>
 
   <ion-list>
     <ion-item button *ngFor="let person of peopleList | async" 

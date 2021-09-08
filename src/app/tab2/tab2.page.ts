@@ -31,7 +31,8 @@ export class Tab2Page implements OnInit {
 
   find(person: any) {
     return this.searchText.trim() === ''
-      || `${ person.first_name } ${ person.last_name }`.toLowerCase().includes(this.searchText.toLowerCase());
+      || `${ person.first_name } ${ person.last_name }`.toLowerCase()
+      .includes(this.searchText.toLowerCase());
   }
 
   async presentModal() {

@@ -8,7 +8,7 @@ import { ModalController } from '@ionic/angular';
 })
 export class SettingsPage implements OnInit {
 
-  constructor(private modal: ModalController) { }
+  constructor(public modal: ModalController) { }
 
   ngOnInit() {
   }

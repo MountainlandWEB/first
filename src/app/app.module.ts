@@ -9,7 +9,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
+import { Badge } from '@ionic-native/badge/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +23,12 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
   // or after 30 seconds (whichever comes first).
   registrationStrategy: 'registerWhenStable:30000'
 })],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, LocalNotifications],
+  providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, 
+    LocalNotifications, 
+    TextToSpeech,
+    Badge
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
